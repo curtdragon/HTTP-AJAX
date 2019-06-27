@@ -1,13 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html,
 body {
+  width: 100%;
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  background-color: #686256;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0 36px;
+  max-width: 665px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  text-align: left;
+}
+
+.todo-list {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.task {
+  background-color: #c1502e;
+  text-align: left;
+  margin: 10px;
+  padding-left: 8px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-radius: 5px;
+}
+
+.task.completed {
+  text-decoration: line-through;
+  box-shadow: 5px 10px;
+  background-color: #587e76;
+}
+
+form {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+form>input {
+  background-color: #a96e5b;
+  border: 0;
+  padding: 6px 0 6px 6px;
+  font-size: 1rem;
+  width: 240px;
+  outline: 0;
+  color: white;
+  border-bottom: 3px solid #587e76;
+  margin-right: 8px;
+  border-radius: 5px;
+
+}
+
+button {
+  background-color: black;
+  border: 1px solid #c1502e;
+  color: yellow;
+  font-size: 16px;
+  padding: 6px 14px;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.clear-btn {
+  margin-top: 16px;
 }
