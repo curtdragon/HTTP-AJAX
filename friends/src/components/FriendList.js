@@ -1,6 +1,16 @@
-import React, { Component } from "react";
-// import { Route, NavLink, Link } from "react-router-dom";
-// import axios from "axios";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const FriendList = props => <h1>FriendList</h1>;
-export default FriendList;
+export default function(props) {
+    return (
+        <div className="friend-list-wrapper">
+            {props.friends.map((friend) => (
+                <Link to={`/friend/${friend.id}`} className="friend-card" key={friend.id}>
+                    <h2>{friend.name}</h2>
+                    <p>{friend.age}</p>
+                    <p>{friend.email}</p>
+                </Link>
+            ))}
+        </div>
+    )
+}

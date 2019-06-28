@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import axios from "axios";
-import { Route, NavLink, Link } from "react-router-dom";
-import DeleteFriend from "./components/DeleteFriend";
+import { Route, NavLink } from "react-router-dom";
 import Friend from "./components/Friend";
 import FriendList from "./components/FriendList";
+import DeleteFriend from "./components/DeleteFriend";
 import NewFriend from "./components/NewFriend";
 import UpdateFriend from "./components/UpdateFriend";
 
@@ -28,24 +28,25 @@ export default class App extends Component {
     this.setState({friends});
   }
 
-  render() {
+  render(props) {
     const {friends} = this.state;
     return (
       <div className="App">
         <nav>
           <h1 className="title">Friends List</h1>
           <div className="nav-links">
+            <NavLink to="/">Friends List</NavLink>
             <NavLink to="/new">New</NavLink>
             <NavLink to="/update">Update</NavLink>
             <NavLink to="/delete">Delete</NavLink>
-            <NavLink to="/">Home</NavLink>
           </div>
         </nav>
 
-        <Route path="/new" exact render={(props) => <NewFriend {...props} updateFriends={this.updateFriends} />} />
-        <Route path="/update" exact render={(props) => <UpdateFriend {...props} friends={friends} />} />
-        <Route path="/delete" exact render={(props) => <DeleteFriend {...props} updateFriends={this.updateFriends} />} />
         <Route path="/" exact render={(props) => <FriendList {...props} friends={friends} />} />
+        <Route path="/friend" exact render={(props) => <Friend {...props} friends={friends} />} />
+        <Route path="/new" exact render={(props) => <NewFriend {...props} updateFriends={this.updateFriends} />} />
+        <Route path="/update/id" render={(props) => <UpdateFriend {...props} updateFriends={this.updateFriends} />} />
+        <Route path="/delete/id" render={(props) => <DeleteFriend {...props} updateFriends={this.updateFriends} />} />
 
       </div>
     );
